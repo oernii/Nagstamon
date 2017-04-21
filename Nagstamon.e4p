@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Project SYSTEM "Project-5.1.dtd">
+<!-- eric project file for project Nagstamon -->
+<!-- Saved: 2017-04-21, 14:56:20 -->
+<!-- Copyright (C) 2017 ,  -->
+<Project version="5.1">
+  <Language>en_US</Language>
+  <Hash>00b038a7ac05bbb340cb876f5e34221228214b65</Hash>
+  <ProgLanguage mixed="0">Python3</ProgLanguage>
+  <ProjectType>PyQt5</ProjectType>
+  <Description></Description>
+  <Version>0.1</Version>
+  <Author></Author>
+  <Email></Email>
+  <Sources>
+    <Source>Nagstamon/Config.py</Source>
+    <Source>Nagstamon/Helpers.py</Source>
+    <Source>Nagstamon/Objects.py</Source>
+    <Source>Nagstamon/QUI/__init__.py</Source>
+    <Source>Nagstamon/QUI/dialog_acknowledge.py</Source>
+    <Source>Nagstamon/QUI/dialog_authentication.py</Source>
+    <Source>Nagstamon/QUI/dialog_downtime.py</Source>
+    <Source>Nagstamon/QUI/dialog_server_missing.py</Source>
+    <Source>Nagstamon/QUI/dialog_submit.py</Source>
+    <Source>Nagstamon/QUI/settings_action.py</Source>
+    <Source>Nagstamon/QUI/settings_main.py</Source>
+    <Source>Nagstamon/QUI/settings_server.py</Source>
+    <Source>Nagstamon/Servers/Centreon.py</Source>
+    <Source>Nagstamon/Servers/Generic.py</Source>
+    <Source>Nagstamon/Servers/Icinga.py</Source>
+    <Source>Nagstamon/Servers/IcingaWeb2.py</Source>
+    <Source>Nagstamon/Servers/Livestatus.py</Source>
+    <Source>Nagstamon/Servers/Multisite.py</Source>
+    <Source>Nagstamon/Servers/Nagios.py</Source>
+    <Source>Nagstamon/Servers/Opsview.py</Source>
+    <Source>Nagstamon/Servers/Thruk.py</Source>
+    <Source>Nagstamon/Servers/Zabbix.py</Source>
+    <Source>Nagstamon/Servers/Zenoss.py</Source>
+    <Source>Nagstamon/Servers/__init__.py</Source>
+    <Source>Nagstamon/Servers/op5Monitor.py</Source>
+    <Source>Nagstamon/__init__.py</Source>
+    <Source>Nagstamon/setup.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/X.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/XK.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/Xatom.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/Xcursorfont.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/Xutil.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/__init__.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/display.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/error.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/ext/__init__.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/ext/composite.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/ext/randr.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/ext/record.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/ext/shape.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/ext/xinerama.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/ext/xtest.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/keysymdef/__init__.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/keysymdef/apl.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/keysymdef/arabic.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/keysymdef/cyrillic.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/keysymdef/greek.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/keysymdef/hebrew.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/keysymdef/katakana.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/keysymdef/korean.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/keysymdef/latin1.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/keysymdef/latin2.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/keysymdef/latin3.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/keysymdef/latin4.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/keysymdef/miscellany.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/keysymdef/publishing.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/keysymdef/special.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/keysymdef/technical.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/keysymdef/thai.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/keysymdef/xf86.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/keysymdef/xk3270.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/keysymdef/xkb.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/protocol/__init__.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/protocol/display.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/protocol/event.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/protocol/request.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/protocol/rq.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/protocol/structs.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/rdb.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/support/__init__.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/support/connect.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/support/lock.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/support/unix_connect.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/support/vms_connect.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/threaded.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/xauth.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/xobject/__init__.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/xobject/colormap.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/xobject/cursor.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/xobject/drawable.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/xobject/fontable.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/xobject/icccm.py</Source>
+    <Source>Nagstamon/thirdparty/Xlib/xobject/resource.py</Source>
+    <Source>Nagstamon/thirdparty/__init__.py</Source>
+    <Source>Nagstamon/thirdparty/ewmh.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/__init__.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/__main__.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/backend.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/backends/OS_X.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/backends/SecretService.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/backends/Windows.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/backends/_OS_X_API.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/backends/__init__.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/backends/fail.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/backends/kwallet.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/cli.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/core.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/credentials.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/errors.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/getpassbackend.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/http.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/py27compat.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/py33compat.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/tests/__init__.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/tests/backends/__init__.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/tests/backends/test_OS_X.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/tests/backends/test_SecretService.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/tests/backends/test_Windows.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/tests/backends/test_kwallet.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/tests/test_backend.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/tests/util.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/util/__init__.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/util/escape.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/util/platform_.py</Source>
+    <Source>Nagstamon/thirdparty/keyring/util/properties.py</Source>
+    <Source>Nagstamon/thirdparty/zabbix_api.py</Source>
+    <Source>Nagstamon/thirdparty/zenoss_api.py</Source>
+    <Source>__init__.py</Source>
+    <Source>build/build.py</Source>
+    <Source>nagstacli.py</Source>
+    <Source>nagstamon.py</Source>
+    <Source>setup.py</Source>
+  </Sources>
+  <Forms>
+    <Form>Nagstamon/QUI/dialog_acknowledge.ui</Form>
+    <Form>Nagstamon/QUI/dialog_authentication.ui</Form>
+    <Form>Nagstamon/QUI/dialog_downtime.ui</Form>
+    <Form>Nagstamon/QUI/dialog_server_missing.ui</Form>
+    <Form>Nagstamon/QUI/dialog_submit.ui</Form>
+    <Form>Nagstamon/QUI/settings_action.ui</Form>
+    <Form>Nagstamon/QUI/settings_main.ui</Form>
+    <Form>Nagstamon/QUI/settings_server.ui</Form>
+  </Forms>
+  <Translations/>
+  <Resources/>
+  <Interfaces/>
+  <Others/>
+  <MainScript>nagstacli.py</MainScript>
+  <Vcs>
+    <VcsType>None</VcsType>
+  </Vcs>
+  <FiletypeAssociations>
+    <FiletypeAssociation pattern="*.idl" type="INTERFACES"/>
+    <FiletypeAssociation pattern="*.py" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.py3" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.pyw" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.pyw3" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.qm" type="TRANSLATIONS"/>
+    <FiletypeAssociation pattern="*.qrc" type="RESOURCES"/>
+    <FiletypeAssociation pattern="*.ts" type="TRANSLATIONS"/>
+    <FiletypeAssociation pattern="*.ui" type="FORMS"/>
+  </FiletypeAssociations>
+</Project>
