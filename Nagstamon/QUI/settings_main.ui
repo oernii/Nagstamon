@@ -7,12 +7,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>601</width>
-    <height>974</height>
+    <width>650</width>
+    <height>972</height>
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
@@ -24,7 +24,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Nagstamon 2.0-alpha settings</string>
+   <string>Nagstamon 2.0 settings</string>
   </property>
   <property name="locale">
    <locale language="C" country="AnyCountry"/>
@@ -42,15 +42,45 @@
       </sizepolicy>
      </property>
      <property name="currentIndex">
-      <number>6</number>
+      <number>4</number>
      </property>
      <widget class="QWidget" name="tab_servers">
       <attribute name="title">
        <string>Servers</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout">
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="topMargin">
+        <number>10</number>
+       </property>
+       <property name="rightMargin">
+        <number>10</number>
+       </property>
+       <property name="bottomMargin">
+        <number>10</number>
+       </property>
+       <property name="spacing">
+        <number>5</number>
+       </property>
        <item row="3" column="1" colspan="3">
         <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <property name="spacing">
+          <number>5</number>
+         </property>
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
          <item>
           <widget class="QCheckBox" name="input_checkbox_debug_mode">
            <property name="text">
@@ -75,6 +105,21 @@
        </item>
        <item row="0" column="3">
         <layout class="QVBoxLayout" name="verticalLayout_2">
+         <property name="spacing">
+          <number>5</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
          <item>
           <widget class="QPushButton" name="button_new_server">
            <property name="text">
@@ -120,6 +165,21 @@
        </item>
        <item row="2" column="1" colspan="3">
         <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <property name="spacing">
+          <number>5</number>
+         </property>
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
          <item>
           <widget class="QCheckBox" name="input_checkbox_use_system_keyring">
            <property name="text">
@@ -131,15 +191,41 @@
        </item>
        <item row="1" column="1" colspan="3">
         <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="spacing">
+          <number>5</number>
+         </property>
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
          <item>
           <widget class="QLabel" name="label_update_interval_seconds">
            <property name="text">
-            <string>Update interval in seconds:</string>
+            <string>Update interval:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="input_spinbox_update_interval_seconds"/>
+          <widget class="QSpinBox" name="input_spinbox_update_interval_seconds">
+           <property name="maximum">
+            <number>999</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_interval_seconds">
+           <property name="text">
+            <string>seconds</string>
+           </property>
+          </widget>
          </item>
          <item>
           <spacer name="horizontalSpacer">
@@ -158,6 +244,21 @@
        </item>
        <item row="4" column="1" colspan="3">
         <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <property name="spacing">
+          <number>5</number>
+         </property>
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
          <item>
           <widget class="QCheckBox" name="input_checkbox_check_for_new_version">
            <property name="text">
@@ -192,7 +293,7 @@
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>300</height>
+           <height>200</height>
           </size>
          </property>
          <property name="maximumSize">
@@ -226,25 +327,70 @@
        <string>Display</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_2">
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="topMargin">
+        <number>10</number>
+       </property>
+       <property name="rightMargin">
+        <number>10</number>
+       </property>
+       <property name="bottomMargin">
+        <number>10</number>
+       </property>
+       <property name="spacing">
+        <number>5</number>
+       </property>
        <item row="0" column="0">
         <widget class="QGroupBox" name="groupbox_display_size">
          <property name="title">
           <string>Statusbar display size:</string>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
+          <property name="topMargin">
+           <number>10</number>
+          </property>
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>10</number>
+          </property>
           <item>
            <layout class="QGridLayout" name="gridLayout_14">
+            <property name="leftMargin">
+             <number>5</number>
+            </property>
+            <property name="topMargin">
+             <number>5</number>
+            </property>
+            <property name="rightMargin">
+             <number>5</number>
+            </property>
+            <property name="bottomMargin">
+             <number>5</number>
+            </property>
+            <property name="spacing">
+             <number>5</number>
+            </property>
             <item row="0" column="1">
              <widget class="QRadioButton" name="input_radiobutton_short_display">
               <property name="text">
-               <string>Short  (&quot;1 4&quot;)</string>
+               <string>Short  [ 1 | 4 ]</string>
               </property>
              </widget>
             </item>
             <item row="0" column="0">
              <widget class="QRadioButton" name="input_radiobutton_long_display">
               <property name="text">
-               <string>Long  (&quot;1 WARNING 4 CRITICAL&quot;)</string>
+               <string>Long  [ 1 WARNING | 4 CRITICAL ]</string>
               </property>
              </widget>
             </item>
@@ -272,8 +418,38 @@
           <string>Statusbar details popup:</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_3">
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
+          <property name="topMargin">
+           <number>10</number>
+          </property>
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>10</number>
+          </property>
+          <property name="spacing">
+           <number>5</number>
+          </property>
           <item row="0" column="0" rowspan="2" colspan="2">
            <layout class="QGridLayout" name="gridLayout_13">
+            <property name="leftMargin">
+             <number>5</number>
+            </property>
+            <property name="topMargin">
+             <number>5</number>
+            </property>
+            <property name="rightMargin">
+             <number>5</number>
+            </property>
+            <property name="bottomMargin">
+             <number>5</number>
+            </property>
+            <property name="spacing">
+             <number>5</number>
+            </property>
             <item row="1" column="0">
              <widget class="QRadioButton" name="input_radiobutton_popup_details_clicking">
               <property name="text">
@@ -332,6 +508,21 @@
           </item>
           <item row="8" column="0">
            <layout class="QGridLayout" name="gridLayout_15">
+            <property name="leftMargin">
+             <number>5</number>
+            </property>
+            <property name="topMargin">
+             <number>5</number>
+            </property>
+            <property name="rightMargin">
+             <number>5</number>
+            </property>
+            <property name="bottomMargin">
+             <number>5</number>
+            </property>
+            <property name="spacing">
+             <number>5</number>
+            </property>
             <item row="0" column="1">
              <widget class="QComboBox" name="input_combobox_default_sort_field"/>
             </item>
@@ -363,8 +554,38 @@
           <string>Appearance:</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_17">
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
+          <property name="topMargin">
+           <number>10</number>
+          </property>
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>10</number>
+          </property>
+          <property name="spacing">
+           <number>5</number>
+          </property>
           <item row="2" column="0">
            <layout class="QHBoxLayout" name="horizontalLayout_16">
+            <property name="spacing">
+             <number>5</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
             <item>
              <widget class="QRadioButton" name="input_radiobutton_fullscreen">
               <property name="text">
@@ -374,6 +595,21 @@
             </item>
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_17">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
               <item>
                <widget class="QLabel" name="label_fullscreen_display">
                 <property name="text">
@@ -424,8 +660,38 @@
           <string>Font:</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_3">
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
+          <property name="topMargin">
+           <number>10</number>
+          </property>
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>10</number>
+          </property>
           <item>
            <layout class="QVBoxLayout" name="verticalLayout_13">
+            <property name="spacing">
+             <number>5</number>
+            </property>
+            <property name="leftMargin">
+             <number>5</number>
+            </property>
+            <property name="topMargin">
+             <number>5</number>
+            </property>
+            <property name="rightMargin">
+             <number>5</number>
+            </property>
+            <property name="bottomMargin">
+             <number>5</number>
+            </property>
             <item>
              <widget class="QLabel" name="label_font">
               <property name="frameShape">
@@ -444,6 +710,18 @@
             </item>
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_6">
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
               <item>
                <widget class="QPushButton" name="button_fontchooser">
                 <property name="text">
@@ -472,8 +750,38 @@
        <string>Filters</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_4">
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="topMargin">
+        <number>10</number>
+       </property>
+       <property name="rightMargin">
+        <number>10</number>
+       </property>
+       <property name="bottomMargin">
+        <number>10</number>
+       </property>
+       <property name="spacing">
+        <number>5</number>
+       </property>
        <item row="4" column="0" rowspan="2">
         <layout class="QHBoxLayout" name="horizontalLayout_9">
+         <property name="spacing">
+          <number>5</number>
+         </property>
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
          <item>
           <widget class="QLineEdit" name="input_lineedit_re_host_pattern">
            <property name="sizePolicy">
@@ -539,17 +847,28 @@
           <string>Filter out the following:</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_5">
-          <item row="6" column="0">
-           <widget class="QCheckBox" name="input_checkbox_filter_all_flapping_services">
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
+          <property name="topMargin">
+           <number>10</number>
+          </property>
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>10</number>
+          </property>
+          <property name="horizontalSpacing">
+           <number>10</number>
+          </property>
+          <property name="verticalSpacing">
+           <number>5</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QCheckBox" name="input_checkbox_filter_all_down_hosts">
             <property name="text">
-             <string>All flapping services</string>
-            </property>
-           </widget>
-          </item>
-          <item row="10" column="1">
-           <widget class="QCheckBox" name="input_checkbox_filter_services_in_soft_state">
-            <property name="text">
-             <string>Services in soft state</string>
+             <string>All down hosts</string>
             </property>
            </widget>
           </item>
@@ -560,17 +879,66 @@
             </property>
            </widget>
           </item>
-          <item row="5" column="1">
-           <widget class="QCheckBox" name="input_checkbox_filter_services_on_down_hosts">
+          <item row="2" column="0">
+           <widget class="QCheckBox" name="input_checkbox_filter_all_flapping_hosts">
             <property name="text">
-             <string>Services on down hosts</string>
+             <string>All flapping hosts</string>
             </property>
            </widget>
           </item>
-          <item row="8" column="1">
-           <widget class="QCheckBox" name="input_checkbox_filter_services_on_unreachable_hosts">
+          <item row="3" column="0">
+           <widget class="QCheckBox" name="input_checkbox_filter_all_disaster_services">
             <property name="text">
-             <string>Services on unreachable hosts</string>
+             <string>All disaster services</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QCheckBox" name="input_checkbox_filter_all_critical_services">
+            <property name="text">
+             <string>All critical services</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QCheckBox" name="input_checkbox_filter_all_unknown_services">
+            <property name="text">
+             <string>All unknown services</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <widget class="qcheckbox" name="input_checkbox_filter_all_high_services">
+            <property name="text">
+             <string>all high services</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="0">
+           <widget class="qcheckbox" name="input_checkbox_filter_all_average_services">
+            <property name="text">
+             <string>all average services</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="0">
+           <widget class="QCheckBox" name="input_checkbox_filter_all_warning_services">
+            <property name="text">
+             <string>All warning services</string>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="0">
+           <widget class="QCheckBox" name="input_checkbox_filter_all_information_services">
+            <property name="text">
+             <string>All information services</string>
+            </property>
+           </widget>
+          </item>
+          <item row="10" column="0">
+           <widget class="QCheckBox" name="input_checkbox_filter_all_flapping_services">
+            <property name="text">
+             <string>All flapping services</string>
             </property>
            </widget>
           </item>
@@ -588,20 +956,6 @@
             </property>
            </widget>
           </item>
-          <item row="9" column="1">
-           <widget class="QCheckBox" name="input_checkbox_filter_hosts_in_soft_state">
-            <property name="text">
-             <string>Hosts in soft state</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="QCheckBox" name="input_checkbox_filter_all_critical_services">
-            <property name="text">
-             <string>All critical services</string>
-            </property>
-           </widget>
-          </item>
           <item row="2" column="1">
            <widget class="QCheckBox" name="input_checkbox_filter_hosts_services_disabled_checks">
             <property name="text">
@@ -609,17 +963,10 @@
             </property>
            </widget>
           </item>
-          <item row="2" column="0">
-           <widget class="QCheckBox" name="input_checkbox_filter_all_flapping_hosts">
+          <item row="3" column="1">
+           <widget class="QCheckBox" name="input_checkbox_filter_hosts_services_maintenance">
             <property name="text">
-             <string>All flapping hosts</string>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="1">
-           <widget class="QCheckBox" name="input_checkbox_filter_services_on_hosts_in_maintenance">
-            <property name="text">
-             <string>Services on hosts in maintenance</string>
+             <string>Hosts and services down for maintenance</string>
             </property>
            </widget>
           </item>
@@ -630,31 +977,38 @@
             </property>
            </widget>
           </item>
-          <item row="4" column="0">
-           <widget class="QCheckBox" name="input_checkbox_filter_all_unknown_services">
+          <item row="5" column="1">
+           <widget class="QCheckBox" name="input_checkbox_filter_services_on_down_hosts">
             <property name="text">
-             <string>All unknown services</string>
+             <string>Services on down hosts</string>
             </property>
            </widget>
           </item>
-          <item row="5" column="0">
-           <widget class="QCheckBox" name="input_checkbox_filter_all_warning_services">
+          <item row="6" column="1">
+           <widget class="QCheckBox" name="input_checkbox_filter_services_on_hosts_in_maintenance">
             <property name="text">
-             <string>All warning services</string>
+             <string>Services on hosts in maintenance</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="0">
-           <widget class="QCheckBox" name="input_checkbox_filter_all_down_hosts">
+          <item row="8" column="1">
+           <widget class="QCheckBox" name="input_checkbox_filter_services_on_unreachable_hosts">
             <property name="text">
-             <string>All down hosts</string>
+             <string>Services on unreachable hosts</string>
             </property>
            </widget>
           </item>
-          <item row="3" column="1">
-           <widget class="QCheckBox" name="input_checkbox_filter_hosts_services_maintenance">
+          <item row="9" column="1">
+           <widget class="QCheckBox" name="input_checkbox_filter_hosts_in_soft_state">
             <property name="text">
-             <string>Hosts and services down for maintenance</string>
+             <string>Hosts in soft state</string>
+            </property>
+           </widget>
+          </item>
+          <item row="10" column="1">
+           <widget class="QCheckBox" name="input_checkbox_filter_services_in_soft_state">
+            <property name="text">
+             <string>Services in soft state</string>
             </property>
            </widget>
           </item>
@@ -670,6 +1024,21 @@
        </item>
        <item row="12" column="0" rowspan="2">
         <layout class="QHBoxLayout" name="horizontalLayout_11">
+         <property name="spacing">
+          <number>5</number>
+         </property>
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
          <item>
           <widget class="QLineEdit" name="input_lineedit_re_status_information_pattern"/>
          </item>
@@ -684,6 +1053,21 @@
        </item>
        <item row="9" column="0" rowspan="2">
         <layout class="QHBoxLayout" name="horizontalLayout_10">
+         <property name="spacing">
+          <number>5</number>
+         </property>
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
          <item>
           <widget class="QLineEdit" name="input_lineedit_re_service_pattern"/>
          </item>
@@ -703,6 +1087,21 @@
        <string>Actions</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_6">
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="topMargin">
+        <number>10</number>
+       </property>
+       <property name="rightMargin">
+        <number>10</number>
+       </property>
+       <property name="bottomMargin">
+        <number>10</number>
+       </property>
+       <property name="spacing">
+        <number>5</number>
+       </property>
        <item row="0" column="0">
         <widget class="QListWidget" name="list_actions">
          <property name="sizePolicy">
@@ -714,7 +1113,7 @@
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>400</height>
+           <height>200</height>
           </size>
          </property>
          <property name="resizeMode">
@@ -724,6 +1123,21 @@
        </item>
        <item row="0" column="2">
         <layout class="QVBoxLayout" name="verticalLayout_4">
+         <property name="spacing">
+          <number>5</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
          <item>
           <widget class="QPushButton" name="button_new_action">
            <property name="text">
@@ -773,24 +1187,39 @@
           <string>Connection method:</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_5">
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
+          <property name="topMargin">
+           <number>10</number>
+          </property>
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>10</number>
+          </property>
           <item>
            <widget class="QRadioButton" name="input_radiobutton_connect_by_host">
             <property name="text">
-             <string>Hostname</string>
+             <string>Hostname provided by monitor</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QRadioButton" name="input_radiobutton_connect_by_dns">
             <property name="text">
-             <string>DNS name</string>
+             <string>DNS name by looking up IP address</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QRadioButton" name="input_radiobutton_connect_by_ip">
             <property name="text">
-             <string>IP</string>
+             <string>IP resolved by hostname</string>
             </property>
            </widget>
           </item>
@@ -816,6 +1245,21 @@
           <string>Browser:</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_14">
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
+          <property name="topMargin">
+           <number>10</number>
+          </property>
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>10</number>
+          </property>
           <item>
            <widget class="QRadioButton" name="input_radiobutton_use_default_browser">
             <property name="text">
@@ -836,6 +1280,21 @@
              <string>Custom browser:</string>
             </property>
             <layout class="QGridLayout" name="gridLayout_19">
+             <property name="leftMargin">
+              <number>10</number>
+             </property>
+             <property name="topMargin">
+              <number>10</number>
+             </property>
+             <property name="rightMargin">
+              <number>10</number>
+             </property>
+             <property name="bottomMargin">
+              <number>10</number>
+             </property>
+             <property name="spacing">
+              <number>5</number>
+             </property>
              <item row="0" column="0">
               <widget class="QLineEdit" name="input_lineedit_custom_browser"/>
              </item>
@@ -859,6 +1318,21 @@
        <string>Notifications</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_6">
+       <property name="spacing">
+        <number>5</number>
+       </property>
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="topMargin">
+        <number>10</number>
+       </property>
+       <property name="rightMargin">
+        <number>10</number>
+       </property>
+       <property name="bottomMargin">
+        <number>10</number>
+       </property>
        <item>
         <widget class="QCheckBox" name="input_checkbox_notification">
          <property name="text">
@@ -872,8 +1346,45 @@
           <string>Notifications:</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_7">
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
+          <property name="topMargin">
+           <number>10</number>
+          </property>
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>10</number>
+          </property>
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_notifications">
+            <property name="spacing">
+             <number>5</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QCheckBox" name="input_checkbox_notify_if_information">
+              <property name="text">
+               <string>INFORMATION</string>
+              </property>
+             </widget>
+            </item>
             <item>
              <widget class="QCheckBox" name="input_checkbox_notify_if_warning">
               <property name="text">
@@ -882,9 +1393,30 @@
              </widget>
             </item>
             <item>
+             <widget class="QCheckBox" name="input_checkbox_notify_if_average">
+              <property name="text">
+               <string>AVERAGE</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="input_checkbox_notify_if_high">
+              <property name="text">
+               <string>HIGH</string>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QCheckBox" name="input_checkbox_notify_if_critical">
               <property name="text">
                <string>CRITICAL</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="input_checkbox_notify_if_disaster">
+              <property name="text">
+               <string>DISASTER</string>
               </property>
              </widget>
             </item>
@@ -938,12 +1470,42 @@
              <string>Sounds:</string>
             </property>
             <layout class="QGridLayout" name="gridLayout_16">
+             <property name="leftMargin">
+              <number>10</number>
+             </property>
+             <property name="topMargin">
+              <number>10</number>
+             </property>
+             <property name="rightMargin">
+              <number>10</number>
+             </property>
+             <property name="bottomMargin">
+              <number>10</number>
+             </property>
+             <property name="spacing">
+              <number>5</number>
+             </property>
              <item row="3" column="0" colspan="2">
               <widget class="QGroupBox" name="notification_custom_sounds_groupbox">
                <property name="title">
                 <string>Custom sounds:</string>
                </property>
                <layout class="QGridLayout" name="gridLayout_8">
+                <property name="leftMargin">
+                 <number>10</number>
+                </property>
+                <property name="topMargin">
+                 <number>10</number>
+                </property>
+                <property name="rightMargin">
+                 <number>10</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>10</number>
+                </property>
+                <property name="spacing">
+                 <number>5</number>
+                </property>
                 <item row="1" column="2">
                  <widget class="QPushButton" name="button_choose_critical">
                   <property name="text">
@@ -1056,6 +1618,21 @@
              <string>Notification actions:</string>
             </property>
             <layout class="QGridLayout" name="gridLayout_11">
+             <property name="leftMargin">
+              <number>10</number>
+             </property>
+             <property name="topMargin">
+              <number>10</number>
+             </property>
+             <property name="rightMargin">
+              <number>10</number>
+             </property>
+             <property name="bottomMargin">
+              <number>10</number>
+             </property>
+             <property name="spacing">
+              <number>5</number>
+             </property>
              <item row="3" column="2">
               <widget class="QLineEdit" name="input_lineedit_notification_action_ok_string"/>
              </item>
@@ -1103,6 +1680,21 @@
                 <string>Custom notification action:</string>
                </property>
                <layout class="QGridLayout" name="gridLayout_7">
+                <property name="leftMargin">
+                 <number>10</number>
+                </property>
+                <property name="topMargin">
+                 <number>10</number>
+                </property>
+                <property name="rightMargin">
+                 <number>10</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>10</number>
+                </property>
+                <property name="spacing">
+                 <number>5</number>
+                </property>
                 <item row="1" column="0">
                  <widget class="QLabel" name="label_notification_custom_action_string">
                   <property name="text">
@@ -1165,6 +1757,21 @@
        <string>Colors</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_12">
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="topMargin">
+        <number>10</number>
+       </property>
+       <property name="rightMargin">
+        <number>10</number>
+       </property>
+       <property name="bottomMargin">
+        <number>10</number>
+       </property>
+       <property name="spacing">
+        <number>5</number>
+       </property>
        <item row="12" column="1">
         <spacer name="verticalSpacer_3">
          <property name="orientation">
@@ -1191,10 +1798,32 @@
           <string>Status:</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_11">
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
+          <property name="topMargin">
+           <number>10</number>
+          </property>
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>5</number>
+          </property>
           <item>
            <widget class="QLabel" name="label_color_ok">
             <property name="text">
              <string> OK </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_color_information">
+            <property name="text">
+             <string> INFORMATIOn </string>
             </property>
            </widget>
           </item>
@@ -1206,9 +1835,30 @@
            </widget>
           </item>
           <item>
+           <widget class="QLabel" name="label_color_average">
+            <property name="text">
+             <string> AVERAGE </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_color_high">
+            <property name="text">
+             <string> HIGH </string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QLabel" name="label_color_critical">
             <property name="text">
              <string> CRITICAL </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_color_disaster">
+            <property name="text">
+             <string> DISASTER </string>
             </property>
            </widget>
           </item>
@@ -1249,8 +1899,30 @@
           <string>Text:</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_8">
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
+          <property name="topMargin">
+           <number>10</number>
+          </property>
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>5</number>
+          </property>
           <item>
            <widget class="QPushButton" name="input_button_color_ok_text">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="input_button_color_information_text">
             <property name="text">
              <string/>
             </property>
@@ -1264,7 +1936,28 @@
            </widget>
           </item>
           <item>
+           <widget class="QPushButton" name="input_button_color_average_text">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="input_button_color_high_text">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QPushButton" name="input_button_color_critical_text">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="input_button_color_disaster_text">
             <property name="text">
              <string/>
             </property>
@@ -1307,8 +2000,30 @@
           <string>Background:</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_12">
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
+          <property name="topMargin">
+           <number>5</number>
+          </property>
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>10</number>
+          </property>
           <item>
            <widget class="QPushButton" name="input_button_color_ok_background">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="input_button_color_information_background">
             <property name="text">
              <string/>
             </property>
@@ -1322,7 +2037,28 @@
            </widget>
           </item>
           <item>
+           <widget class="QPushButton" name="input_button_color_average_background">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="input_button_color_high_background">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QPushButton" name="input_button_color_critical_background">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="input_button_color_disaster_background">
             <property name="text">
              <string/>
             </property>
@@ -1361,6 +2097,21 @@
        </item>
        <item row="10" column="1" colspan="2">
         <layout class="QHBoxLayout" name="horizontalLayout_12">
+         <property name="spacing">
+          <number>5</number>
+         </property>
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
          <item>
           <widget class="QPushButton" name="button_colors_reset">
            <property name="text">
@@ -1383,6 +2134,21 @@
           <string>Colored grid:</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_18">
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
+          <property name="topMargin">
+           <number>10</number>
+          </property>
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>10</number>
+          </property>
+          <property name="spacing">
+           <number>5</number>
+          </property>
           <item row="0" column="0">
            <widget class="QCheckBox" name="input_checkbox_show_grid">
             <property name="text">
@@ -1421,6 +2187,47 @@
             <property name="spacing">
              <number>0</number>
             </property>
+            <property name="leftMargin">
+             <number>5</number>
+            </property>
+            <property name="topMargin">
+             <number>5</number>
+            </property>
+            <property name="rightMargin">
+             <number>5</number>
+            </property>
+            <property name="bottomMargin">
+             <number>5</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_intensity_information_0">
+              <property name="autoFillBackground">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string> INFORMATION</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+              <property name="margin">
+               <number>0</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_intensity_information_1">
+              <property name="autoFillBackground">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string> INFORMATION</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
             <item>
              <widget class="QLabel" name="label_intensity_warning_0">
               <property name="autoFillBackground">
@@ -1451,6 +2258,64 @@
              </widget>
             </item>
             <item>
+             <widget class="QLabel" name="label_intensity_average_0">
+              <property name="autoFillBackground">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string> AVERAGE</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+              <property name="margin">
+               <number>0</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_intensity_average_1">
+              <property name="autoFillBackground">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string> AVERAGE</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_intensity_high_0">
+              <property name="autoFillBackground">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string> HIGH</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+              <property name="margin">
+               <number>0</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_intensity_high_1">
+              <property name="autoFillBackground">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string> HIGH</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QLabel" name="label_intensity_critical_0">
               <property name="autoFillBackground">
                <bool>true</bool>
@@ -1470,6 +2335,32 @@
               </property>
               <property name="text">
                <string> CRITICAL</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_intensity_disaster_0">
+              <property name="autoFillBackground">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string> DISASTER</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_intensity_disaster_1">
+              <property name="autoFillBackground">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string> DISASTER</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1566,6 +2457,21 @@
        <string>Defaults</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_9">
+       <property name="spacing">
+        <number>5</number>
+       </property>
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="topMargin">
+        <number>10</number>
+       </property>
+       <property name="rightMargin">
+        <number>10</number>
+       </property>
+       <property name="bottomMargin">
+        <number>10</number>
+       </property>
        <item>
         <widget class="QLabel" name="label_defaults">
          <property name="text">
@@ -1579,6 +2485,21 @@
           <string>Acknowledgements:</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_10">
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
+          <property name="topMargin">
+           <number>10</number>
+          </property>
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>10</number>
+          </property>
           <item>
            <widget class="QCheckBox" name="input_checkbox_defaults_acknowledge_sticky">
             <property name="text">
@@ -1609,6 +2530,18 @@
           </item>
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_13">
+            <property name="spacing">
+             <number>5</number>
+            </property>
+            <property name="topMargin">
+             <number>5</number>
+            </property>
+            <property name="rightMargin">
+             <number>5</number>
+            </property>
+            <property name="bottomMargin">
+             <number>5</number>
+            </property>
             <item>
              <widget class="QLabel" name="label_defaults_acknowledge_comment">
               <property name="text">
@@ -1630,6 +2563,21 @@
           <string>Downtime:</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_10">
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
+          <property name="topMargin">
+           <number>10</number>
+          </property>
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>10</number>
+          </property>
+          <property name="spacing">
+           <number>5</number>
+          </property>
           <item row="3" column="0">
            <widget class="QLabel" name="label_defaults_downtime_comment">
             <property name="text">
@@ -1649,6 +2597,18 @@
           </item>
           <item row="1" column="1">
            <layout class="QHBoxLayout" name="horizontalLayout_8">
+            <property name="spacing">
+             <number>5</number>
+            </property>
+            <property name="topMargin">
+             <number>5</number>
+            </property>
+            <property name="rightMargin">
+             <number>5</number>
+            </property>
+            <property name="bottomMargin">
+             <number>5</number>
+            </property>
             <item>
              <widget class="QSpinBox" name="input_spinbox_defaults_downtime_duration_hours"/>
             </item>
@@ -1686,6 +2646,18 @@
           </item>
           <item row="0" column="0" colspan="2">
            <layout class="QGridLayout" name="gridLayout_9">
+            <property name="topMargin">
+             <number>5</number>
+            </property>
+            <property name="rightMargin">
+             <number>5</number>
+            </property>
+            <property name="bottomMargin">
+             <number>5</number>
+            </property>
+            <property name="spacing">
+             <number>5</number>
+            </property>
             <item row="1" column="1">
              <widget class="QRadioButton" name="input_radiobutton_defaults_downtime_type_flexible">
               <property name="text">
@@ -1731,6 +2703,21 @@
           <string>Submit check result:</string>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_14">
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
+          <property name="topMargin">
+           <number>10</number>
+          </property>
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>10</number>
+          </property>
           <item>
            <widget class="QLabel" name="label_defaults_submit_check_result_comment">
             <property name="text">
@@ -1808,9 +2795,13 @@
   <tabstop>input_checkbox_filter_all_down_hosts</tabstop>
   <tabstop>input_checkbox_filter_all_unreachable_hosts</tabstop>
   <tabstop>input_checkbox_filter_all_flapping_hosts</tabstop>
+  <tabstop>input_checkbox_filter_all_disaster_services</tabstop>
   <tabstop>input_checkbox_filter_all_critical_services</tabstop>
   <tabstop>input_checkbox_filter_all_unknown_services</tabstop>
+  <tabstop>input_checkbox_filter_all_high_services</tabstop>
+  <tabstop>input_checkbox_filter_all_average_services</tabstop>
   <tabstop>input_checkbox_filter_all_warning_services</tabstop>
+  <tabstop>input_checkbox_filter_all_information_services</tabstop>
   <tabstop>input_checkbox_filter_all_flapping_services</tabstop>
   <tabstop>input_checkbox_filter_acknowledged_hosts_services</tabstop>
   <tabstop>input_checkbox_filter_hosts_services_disabled_notifications</tabstop>
@@ -1840,8 +2831,12 @@
   <tabstop>input_radiobutton_connect_by_dns</tabstop>
   <tabstop>input_radiobutton_connect_by_ip</tabstop>
   <tabstop>input_checkbox_notification</tabstop>
+  <tabstop>input_checkbox_notify_if_information</tabstop>
   <tabstop>input_checkbox_notify_if_warning</tabstop>
+  <tabstop>input_checkbox_notify_if_average</tabstop>
+  <tabstop>input_checkbox_notify_if_high</tabstop>
   <tabstop>input_checkbox_notify_if_critical</tabstop>
+  <tabstop>input_checkbox_notify_if_disaster</tabstop>
   <tabstop>input_checkbox_notify_if_unknown</tabstop>
   <tabstop>input_checkbox_notify_if_unreachable</tabstop>
   <tabstop>input_checkbox_notify_if_down</tabstop>
@@ -1875,10 +2870,18 @@
   <tabstop>input_checkbox_notification_custom_action_single</tabstop>
   <tabstop>input_button_color_ok_text</tabstop>
   <tabstop>input_button_color_ok_background</tabstop>
+  <tabstop>input_button_color_information_text</tabstop>
+  <tabstop>input_button_color_information_background</tabstop>
   <tabstop>input_button_color_warning_text</tabstop>
   <tabstop>input_button_color_warning_background</tabstop>
+  <tabstop>input_button_color_average_text</tabstop>
+  <tabstop>input_button_color_average_background</tabstop>
+  <tabstop>input_button_color_high_text</tabstop>
+  <tabstop>input_button_color_high_background</tabstop>
   <tabstop>input_button_color_critical_text</tabstop>
   <tabstop>input_button_color_critical_background</tabstop>
+  <tabstop>input_button_color_disaster_text</tabstop>
+  <tabstop>input_button_color_disaster_background</tabstop>
   <tabstop>input_button_color_unknown_text</tabstop>
   <tabstop>input_button_color_unknown_background</tabstop>
   <tabstop>input_button_color_unreachable_text</tabstop>
@@ -1938,7 +2941,7 @@
   </connection>
  </connections>
  <buttongroups>
-  <buttongroup name="buttongroup_popup_statuswindow"/>
   <buttongroup name="buttongroup_close_statusbar"/>
+  <buttongroup name="buttongroup_popup_statuswindow"/>
  </buttongroups>
 </ui>

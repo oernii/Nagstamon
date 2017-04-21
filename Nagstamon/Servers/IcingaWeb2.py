@@ -76,71 +76,83 @@ class IcingaWeb2Server(GenericServer):
         # dummy default empty cgi urls - get filled later when server version is known
         self.cgiurl_services = None
         self.cgiurl_hosts = None
-        self.use_display_name_host = False
-        self.use_display_name_service = False
 
 
     def init_HTTP(self):
+        """
+            initializing of session object
+        """
         GenericServer.init_HTTP(self)
 
         if not 'Referer' in self.session.headers:
             self.session.headers['Referer'] = self.monitor_cgi_url + '/icingaweb2/monitoring'
 
-        if len(self.session.cookies) == 0:
-            # get login page, thus automatically a cookie
-            login = self.FetchURL('{0}/authentication/login'.format(self.monitor_url))
-            if login.error == '' and login.status_code == 200:
-                form = login.result.find('form')
-                form_inputs = {}
-                for form_input in ('redirect', 'formUID', 'CSRFToken', 'btn_submit'):
-                    form_inputs[form_input] = form.find('input', {'name': form_input})['value']
-                form_inputs['username'] = self.username
-                form_inputs['password'] = self.password
-
-                # fire up login button with all needed data
-                self.FetchURL('{0}/authentication/login'.format(self.monitor_url), cgi_data=form_inputs)
+        # normally cookie out will be used
+        if not self.no_cookie_auth:
+            if len(self.session.cookies) == 0:
+                # get login page, thus automatically a cookie
+                login = self.FetchURL('{0}/authentication/login'.format(self.monitor_url))
+                if login.error == '' and login.status_code == 200:
+                    form = login.result.find('form')
+                    form_inputs = {}
+                    for form_input in ('redirect', 'formUID', 'CSRFToken', 'btn_submit'):
+                        form_inputs[form_input] = form.find('input', {'name': form_input})['value']
+                    form_inputs['username'] = self.username
+                    form_inputs['password'] = self.password
+    
+                    # fire up login button with all needed data
+                    self.FetchURL('{0}/authentication/login'.format(self.monitor_url), cgi_data=form_inputs)
 
 
     def _get_status(self):
         """
-            Get status from Icinga Server, prefer JSON if possible
+            Get status from Icinga Server - only JSON
         """
-        try:
-            # define CGI URLs for hosts and services
-            if self.cgiurl_hosts == self.cgiurl_services == None:
-                # services (unknown, warning or critical?)
-                self.cgiurl_services = {'hard': self.monitor_cgi_url + '/monitoring/list/services?service_state>0&service_state<=3&service_state_type=1&addColumns=service_last_check&format=json', \
-                                        'soft': self.monitor_cgi_url + '/monitoring/list/services?service_state>0&service_state<=3&service_state_type=0&addColumns=service_last_check&format=json'}
-                # hosts (up or down or unreachable)
-                self.cgiurl_hosts = {'hard': self.monitor_cgi_url + '/monitoring/list/hosts?host_state>0&host_state<=2&host_state_type=1&addColumns=host_last_check&format=json', \
-                                     'soft': self.monitor_cgi_url + '/monitoring/list/hosts?host_state>0&host_state<=2&host_state_type=0&addColumns=host_last_check&format=json'}
-            self._get_status_JSON()
-        except:
-            # set checking flag back to False
-            self.isChecking = False
-            result, error = self.Error(sys.exc_info())
-            return Result(result=result, error=error)
+        # define CGI URLs for hosts and services
+        if self.cgiurl_hosts == self.cgiurl_services == None:
+            # services (unknown, warning or critical?)
+            self.cgiurl_services = {'hard': self.monitor_cgi_url + '/monitoring/list/services?service_state>0&service_state<=3&service_state_type=1&addColumns=service_last_check&format=json', \
+                                    'soft': self.monitor_cgi_url + '/monitoring/list/services?service_state>0&service_state<=3&service_state_type=0&addColumns=service_last_check&format=json'}
+            # hosts (up or down or unreachable)
+            self.cgiurl_hosts = {'hard': self.monitor_cgi_url + '/monitoring/list/hosts?host_state>0&host_state<=2&host_state_type=1&addColumns=host_last_check&format=json', \
+                                 'soft': self.monitor_cgi_url + '/monitoring/list/hosts?host_state>0&host_state<=2&host_state_type=0&addColumns=host_last_check&format=json'}
 
-        # dummy return in case all is OK
-        return Result()
-
-
-    def _get_status_JSON(self):
-        """
-            Get status from Icinga Server - the JSON way
-        """
         # new_hosts dictionary
         self.new_hosts = dict()
 
         # hosts - mostly the down ones
         # now using JSON output from Icinga
         try:
-            for status_type in 'hard', 'soft':
-                result = self.FetchURL(self.cgiurl_hosts[status_type], giveback='raw')
+            for status_type in 'hard', 'soft':   
+                # first attempt
+                result = self.FetchURL(self.cgiurl_hosts[status_type], giveback='raw')            
+                # authentication errors get a status code 200 too back because its
+                # HTML works fine :-(
+                if result.status_code < 400 and\
+                   result.result.startswith('<'):
+                    # in case of auth error reset HTTP session and try again
+                    self.reset_HTTP()
+                    result = self.FetchURL(self.cgiurl_hosts[status_type], giveback='raw') 
+                    # if it does not work again tell GUI there is a problem
+                    if result.status_code < 400 and\
+                       result.result.startswith('<'):
+                        self.refresh_authentication = True
+                        return Result(result=result.result,
+                                      error='Authentication error',
+                                      status_code=result.status_code)
+                
                 # purify JSON result of unnecessary control sequence \n
-                jsonraw, error = copy.deepcopy(result.result.replace('\n', '')), copy.deepcopy(result.error)
+                jsonraw, error, status_code = copy.deepcopy(result.result.replace('\n', '')),\
+                                              copy.deepcopy(result.error),\
+                                              result.status_code
 
-                if error != '': return Result(result=jsonraw, error=error)
+                if error != '' or status_code >= 400:
+                    return Result(result=jsonraw,
+                                  error=error,
+                                  status_code=status_code)
+
+                # check if any error occured
+                self.check_for_error(jsonraw, error, status_code)
 
                 hosts = json.loads(jsonraw)
 
@@ -166,13 +178,9 @@ class IcingaWeb2Server(GenericServer):
                         self.new_hosts[host_name].name = host_name
                         self.new_hosts[host_name].server = self.name
                         self.new_hosts[host_name].status = self.STATES_MAPPING['hosts'][int(h['host_state'])]
-                        # self.new_hosts[host_name].last_check = datetime.datetime.utcfromtimestamp(int(h['host_last_check']))
                         self.new_hosts[host_name].last_check = datetime.datetime.fromtimestamp(int(h['host_last_check']))
-                        # duration = datetime.datetime.now() - datetime.datetime.utcfromtimestamp(int(h['host_last_state_change']))
-                        duration = datetime.datetime.now() - datetime.datetime.fromtimestamp(int(h['host_last_state_change']))
-                        self.new_hosts[host_name].duration = strfdelta(duration, '{days}d {hours}h {minutes}m {seconds}s')
                         self.new_hosts[host_name].attempt = h['host_attempt']
-                        self.new_hosts[host_name].status_information = h['host_output'].replace('\n', ' ').strip()
+                        self.new_hosts[host_name].status_information = BeautifulSoup(h['host_output'].replace('\n', ' ').strip(), 'html.parser').text
                         self.new_hosts[host_name].passiveonly = not(int(h['host_active_checks_enabled']))
                         self.new_hosts[host_name].notifications_disabled = not(int(h['host_notifications_enabled']))
                         self.new_hosts[host_name].flapping = int(h['host_is_flapping'])
@@ -183,6 +191,10 @@ class IcingaWeb2Server(GenericServer):
                         # extra Icinga properties to solve https://github.com/HenriWahl/Nagstamon/issues/192
                         # acknowledge needs host_description and no display name
                         self.new_hosts[host_name].real_name = h['host_name']
+       
+                        # extra duration needed for calculation
+                        duration = datetime.datetime.now() - datetime.datetime.fromtimestamp(int(h['host_last_state_change']))
+                        self.new_hosts[host_name].duration = strfdelta(duration, '{days}d {hours}h {minutes}m {seconds}s')
                         
                     del h, host_name
         except:
@@ -199,13 +211,19 @@ class IcingaWeb2Server(GenericServer):
             for status_type in 'hard', 'soft':
                 result = self.FetchURL(self.cgiurl_services[status_type], giveback='raw')
                 # purify JSON result of unnecessary control sequence \n
-                jsonraw, error = copy.deepcopy(result.result.replace('\n', '')), copy.deepcopy(result.error)
+                jsonraw, error, status_code = copy.deepcopy(result.result.replace('\n', '')),\
+                                              copy.deepcopy(result.error),\
+                                              result.status_code
 
-                if error != '': return Result(result=jsonraw, error=error)
-
+                if error != '' or status_code >= 400:
+                    return Result(result=jsonraw,
+                                  error=error,
+                                  status_code=status_code)
+                
+                # check if any error occured
+                self.check_for_error(jsonraw, error, status_code)
 
                 services = copy.deepcopy(json.loads(jsonraw))
-
 
                 for service in services:
                     # make dict of tuples for better reading
@@ -247,13 +265,9 @@ class IcingaWeb2Server(GenericServer):
                         self.new_hosts[host_name].services[service_name].name = service_name
                         self.new_hosts[host_name].services[service_name].server = self.name
                         self.new_hosts[host_name].services[service_name].status = self.STATES_MAPPING['services'][int(s['service_state'])]
-                        # self.new_hosts[host_name].services[service_name].last_check = datetime.datetime.utcfromtimestamp(int(s['service_last_check']))
-                        self.new_hosts[host_name].services[service_name].last_check = datetime.datetime.fromtimestamp(int(s['service_last_check']))
-                        # duration = datetime.datetime.now() - datetime.datetime.utcfromtimestamp(int(s['service_last_state_change']))
-                        duration = datetime.datetime.now() - datetime.datetime.fromtimestamp(int(s['service_last_state_change']))
-                        self.new_hosts[host_name].services[service_name].duration = strfdelta(duration, '{days}d {hours}h {minutes}m {seconds}s')
+                        self.new_hosts[host_name].services[service_name].last_check = datetime.datetime.fromtimestamp(int(s['service_last_check']))                      
                         self.new_hosts[host_name].services[service_name].attempt = s['service_attempt']
-                        self.new_hosts[host_name].services[service_name].status_information = s['service_output'].replace('\n', ' ').strip()
+                        self.new_hosts[host_name].services[service_name].status_information = BeautifulSoup(s['service_output'].replace('\n', ' ').strip(), 'html.parser').text
                         self.new_hosts[host_name].services[service_name].passiveonly = not(int(s['service_active_checks_enabled']))
                         self.new_hosts[host_name].services[service_name].notifications_disabled = not(int(s['service_notifications_enabled']))
                         self.new_hosts[host_name].services[service_name].flapping = int(s['service_is_flapping'])
@@ -264,6 +278,10 @@ class IcingaWeb2Server(GenericServer):
                         # extra Icinga properties to solve https://github.com/HenriWahl/Nagstamon/issues/192
                         # acknowledge needs service_description and no display name
                         self.new_hosts[host_name].services[service_name].real_name = s['service_description']
+                        
+                        # extra duration needed for calculation
+                        duration = datetime.datetime.now() - datetime.datetime.fromtimestamp(int(s['service_last_state_change']))
+                        self.new_hosts[host_name].services[service_name].duration = strfdelta(duration, '{days}d {hours}h {minutes}m {seconds}s')                      
                         
                     del s, host_name, service_name
         except:
@@ -281,8 +299,6 @@ class IcingaWeb2Server(GenericServer):
 
         # dummy return in case all is OK
         return Result()
-
-
 
 
     def _set_recheck(self, host, service):

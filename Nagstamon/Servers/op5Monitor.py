@@ -102,17 +102,6 @@ class Op5MonitorServer(GenericServer):
     api_svc_col.append('scheduled_downtime_depth')
     api_svc_col.append('state')
 
-    api_default_svc_query='[services] state !=0'
-    api_default_svc_query+=' or host.state != 0'
-    api_default_svc_query+='&columns=%s' % (','.join(api_svc_col))
-    api_default_svc_query+='&format=json'
-
-    api_default_host_query='[hosts] state !=0'
-    api_default_host_query+='&columns=%s' % (','.join(api_host_col))
-    api_default_host_query+='&format=json'
-
-    api_default_host_query = api_default_host_query.replace(" ", "%20")
-    api_default_svc_query = api_default_svc_query.replace(" ", "%20")
 
     # URLs for browser shortlinks/buttons on popup window
     BROWSER_URLS = { "monitor": "$MONITOR$/monitor",\
@@ -148,11 +137,30 @@ class Op5MonitorServer(GenericServer):
         try:
 
             # Fetch Host info
-            result = self.FetchURL(self.monitor_url + self.api_count + self.api_default_host_query, giveback="raw")
-            data = json.loads(result.result)
+            api_default_host_query='[hosts] %s ' % self.host_filter
+            api_default_host_query+='&columns=%s' % (','.join(self.api_host_col))
+            api_default_host_query+='&format=json'
+
+            api_default_host_query = api_default_host_query.replace(" ", "%20")
+            result = self.FetchURL(self.monitor_url + self.api_count + api_default_host_query, giveback="raw")
+            data, error, status_code = json.loads(result.result),\
+                                       result.error,\
+                                       result.status_code
+          
+            # check if any error occured
+            errors_occured = self.check_for_error(data, error, status_code)
+            # if there are errors return them
+            if errors_occured != False:
+                return(errors_occured)    
+                           
             if data['count']:
                 count = data['count']
-                result = self.FetchURL(self.monitor_url + self.api_query + self.api_default_host_query + '&limit=' + str(count), giveback="raw")
+                api_default_host_query='[hosts] %s ' % self.host_filter
+                api_default_host_query+='&columns=%s' % (','.join(self.api_host_col))
+                api_default_host_query+='&format=json'
+
+                api_default_host_query = api_default_host_query.replace(" ", "%20")
+                result = self.FetchURL(self.monitor_url + self.api_query + api_default_host_query + '&limit=' + str(count), giveback="raw")
                 data = json.loads(result.result)
                 n = dict()
                 for api in data:
@@ -188,11 +196,30 @@ class Op5MonitorServer(GenericServer):
 
 
             # Fetch services info
-            result = self.FetchURL(self.monitor_url + self.api_count + self.api_default_svc_query, giveback="raw")
-            data = json.loads(result.result)
+            api_default_svc_query='[services] %s ' % self.service_filter
+            api_default_svc_query+='&columns=%s' % (','.join(self.api_svc_col))
+            api_default_svc_query+='&format=json'
+
+            api_default_svc_query = api_default_svc_query.replace(" ", "%20")
+            result = self.FetchURL(self.monitor_url + self.api_count + api_default_svc_query, giveback="raw")
+            data, error, status_code = json.loads(result.result),\
+                                       result.error,\
+                                       result.status_code
+                        
+            # check if any error occured
+            errors_occured = self.check_for_error(data, error, status_code)
+            # if there are errors return them
+            if errors_occured != False:
+                return(errors_occured)    
+
             if data['count']:
                 count = data['count']
-                result = self.FetchURL(self.monitor_url + self.api_query + self.api_default_svc_query + '&limit=' + str(count), giveback="raw")
+                api_default_svc_query='[services] %s ' % self.service_filter
+                api_default_svc_query+='&columns=%s' % (','.join(self.api_svc_col))
+                api_default_svc_query+='&format=json'
+
+                api_default_svc_query = api_default_svc_query.replace(" ", "%20")
+                result = self.FetchURL(self.monitor_url + self.api_query + api_default_svc_query + '&limit=' + str(count), giveback="raw")
                 data = json.loads(result.result)
                 for api in data:
                     n = dict()
@@ -243,8 +270,6 @@ class Op5MonitorServer(GenericServer):
                     nagitems['services'].append(n)
                 return Result()
         except:
-            ###import traceback
-            ###traceback.print_exc(file=sys.stdout)
 
             self.isChecking = False
             # store status_code for returning result to tell GUI to reauthenticate

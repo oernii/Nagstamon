@@ -21,44 +21,56 @@
 import os
 import sys
 import socket
-# not necessary here
-#import nagstacli
+import platform
 
 # fix/patch for https://bugs.launchpad.net/ubuntu/+source/nagstamon/+bug/732544
 socket.setdefaulttimeout(30)
-
 
 try:
     if __name__ == '__main__':
         # queue.Queue() needs threading module which might be not such a good idea to be used
         # because QThread is already in use
-        debug_queue = list()       
-        
+        # ##debug_queue = list()
+
         # Initialize global configuration
-        from Nagstamon.Config import (conf,
-                                      RESOURCES)
+        # from Nagstamon.Config import (conf,
+                # RESOURCES,
+                # debug_queue)
+        from Nagstamon.Config import conf
 
         from Nagstamon.Helpers import lock_config_folder
 
-       #if there are more args, than the config folder,  nagstaCLI is been executed
+        # if there are more args, than the config folder,  nagstaCLI is been executed
         if len(sys.argv) > 2:
+            import nagstacli  # fix crash if more than 2 args are passed - mprenditore
             nagstacli.executeCli()
             sys.exit(1)
-            
+
         # Acquire the lock
         if not lock_config_folder(conf.configdir):
             print('An instance is already running this config ({})'.format(conf.configdir))
             sys.exit(1)
 
+        # remove QT_QPA_PLATFORMTHEME env variable to fix ugly theme in GNOME
+        if platform.system() == 'Linux':
+            try:
+                os.environ.pop('QT_QPA_PLATFORMTHEME')
+            except Exception:
+                pass
+       
         # get GUI
+        # from Nagstamon.QUI import (APP,
+                # statuswindow,
+                # check_version,
+                # check_servers,
+                # dialogs)
         from Nagstamon.QUI import (APP,
-                                   statuswindow,
-                                   check_version,
-                                   check_servers,
-                                   dialogs)
+                statuswindow,
+                check_version,
+                check_servers)
         # get server information
-        from Nagstamon.Servers import (servers,
-                                       get_enabled_servers)
+        # from Nagstamon.Servers import (servers,
+                # get_enabled_servers)
 
         # ask for help if no servers are configured
         check_servers()
@@ -67,10 +79,15 @@ try:
         statuswindow.show()
         statuswindow.adjustSize()
 
-        if conf.check_for_new_version == True:
+        if conf.check_for_new_version is True:
             check_version.check(start_mode=True, parent=statuswindow)
 
-        sys.exit(APP.exec_())
+        try:
+            APP.exec_()
+            del(APP)
+            sys.exit(0)
+        except Exception:
+            sys.exit(0)
 
 
 except Exception as err:

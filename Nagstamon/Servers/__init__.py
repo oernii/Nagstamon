@@ -19,7 +19,10 @@
 
 """Module Servers"""
 
-import urllib.request, urllib.error, urllib.parse
+import urllib.request
+import urllib.error
+import urllib.parse
+
 from collections import OrderedDict
 
 # load all existing server types
@@ -62,7 +65,7 @@ def get_enabled_servers():
     """
         list of enabled servers which connections outside should be used to check
     """
-    return([x for x in servers.values() if x.enabled == True])
+    return([x for x in servers.values() if x.enabled is True])
 
 
 def get_worst_status():
@@ -81,14 +84,22 @@ def get_status_count():
         get all states of all servers and count them
     """
     state_count = {'UNKNOWN': 0,
+                   'INFORMATION': 0,
                    'WARNING': 0,
+                   'AVERAGE': 0,
                    'CRITICAL': 0,
+                   'HIGH': 0,
+                   'DISASTER': 0,
                    'UNREACHABLE': 0,
                    'DOWN': 0}
     for server in get_enabled_servers():
         state_count['UNKNOWN'] += server.unknown
+        state_count['INFORMATION'] += server.information
         state_count['WARNING'] += server.warning
+        state_count['AVERAGE'] += server.average
         state_count['CRITICAL'] += server.critical
+        state_count['HIGH'] += server.high
+        state_count['DISASTER'] += server.disaster
         state_count['UNREACHABLE'] += server.unreachable
         state_count['DOWN'] += server.down
 
@@ -119,8 +130,6 @@ def create_server(server=None):
     new_server.enabled = server.enabled
     new_server.monitor_url = server.monitor_url
     new_server.monitor_cgi_url = server.monitor_cgi_url
-    # add resources, needed for auth dialog
-    # new_server.Resources = resources
     new_server.username = server.username
     new_server.password = server.password
     new_server.use_proxy = server.use_proxy
@@ -128,13 +137,13 @@ def create_server(server=None):
     new_server.proxy_address = server.proxy_address
     new_server.proxy_username = server.proxy_username
     new_server.proxy_password = server.proxy_password
+    new_server.authentication = server.authentication
+    new_server.timeout = server.timeout
 
     # if password is not to be saved ask for it at startup
-    if (server.enabled == True and server.save_password == False and server.use_autologin == False):
+    if (server.enabled is True and server.save_password is False and
+            server.use_autologin is False):
         new_server.refresh_authentication = True
-
-    # access to thread-safe debug queue
-    # new_server.debug_queue = debug_queue
 
     # Special FX
     # Centreon
@@ -143,19 +152,25 @@ def create_server(server=None):
     # Icinga
     new_server.use_display_name_host = server.use_display_name_host
     new_server.use_display_name_service = server.use_display_name_service
+    # IcingaWeb2
+    new_server.no_cookie_auth = server.no_cookie_auth
     # Check_MK Multisite
     new_server.force_authuser = server.force_authuser
 
+    # OP5 api filters
+    new_server.host_filter = server.host_filter
+    new_server.service_filter = server.service_filter
+
     # server's individual preparations for HTTP connections (for example cookie creation)
     # is done in GetStatus() method of monitor
-    if server.enabled == True:
+    if server.enabled is True:
         new_server.enabled = True
 
     # start with high thread counter so server update thread does not have to wait
     new_server.thread_counter = conf.update_interval_seconds
 
     # debug
-    if conf.debug_mode == True:
+    if conf.debug_mode is True:
         new_server.Debug(server=server.name, debug="Created server.")
 
     return new_server
