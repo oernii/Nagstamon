@@ -169,31 +169,6 @@ def HumanReadableDurationFromTimestamp(timestamp):
         traceback.print_exc(file=sys.stdout)
 
 
-def Debug(conf, string,  obj):
-    #if conf.debug_mode:
-        #w, h , x,  y = obj.calculate_size()
-        if 'is_shown' in obj.__dict__:
-            is_shown = ", is_shown:" + str(obj.is_shown)
-        else:
-            is_shown = ""
-            
-        if 'windowed' in conf.__dict__:
-            windowed = ", windowed:" + str(conf.windowed)
-        else:
-            windowed = ""
-            
-        if 'status_ok' in obj.__dict__:
-            status_ok = ", status_ok:" + str(obj.status_ok)
-        else:
-            status_ok = ""
-            
-        if 'moving' in obj.__dict__:
-            moving = ", moving:" + str(obj.moving)
-        else:
-            moving = ""
-            
-        print ( "DEBUG: " + string + is_shown + windowed + status_ok + moving)
-
 def MachineSortableDate(raw):
     """
     Monitors gratefully show duration even in weeks and months which confuse the
