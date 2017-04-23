@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'dialog_downtime.ui'
+# Form implementation generated from reading ui file '/home/oernii/src/Nagstamon/Nagstamon/QUI/dialog_downtime.ui'
 #
-# Created by: PyQt5 UI code generator 5.5.1
+# Created by: PyQt5 UI code generator 5.7
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -96,4 +96,14 @@ class Ui_dialog_downtime(object):
         self.input_lineedit_start_time.setText(_translate("dialog_downtime", "n/a"))
         self.input_radiobutton_type_flexible.setText(_translate("dialog_downtime", "Flexible"))
         self.input_radiobutton_type_fixed.setText(_translate("dialog_downtime", "Fixed"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    dialog_downtime = QtWidgets.QDialog()
+    ui = Ui_dialog_downtime()
+    ui.setupUi(dialog_downtime)
+    dialog_downtime.show()
+    sys.exit(app.exec_())
 

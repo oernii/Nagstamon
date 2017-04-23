@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'settings_server.ui'
+# Form implementation generated from reading ui file '/home/oernii/src/Nagstamon/Nagstamon/QUI/settings_server.ui'
 #
 # Created by: PyQt5 UI code generator 5.7
 #
@@ -290,4 +290,14 @@ class Ui_settings_server(object):
         self.input_checkbox_use_display_name_host.setText(_translate("settings_server", "Use display name as host name"))
         self.input_checkbox_force_authuser.setText(_translate("settings_server", "Only show permitted hosts for \"see all\" users (1.4.0i1 or newer)"))
         self.label_service_filter.setText(_translate("settings_server", "Service filter:"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    settings_server = QtWidgets.QDialog()
+    ui = Ui_settings_server()
+    ui.setupUi(settings_server)
+    settings_server.show()
+    sys.exit(app.exec_())
 

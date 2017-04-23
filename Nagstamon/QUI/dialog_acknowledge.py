@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'dialog_acknowledge.ui'
+# Form implementation generated from reading ui file '/home/oernii/src/Nagstamon/Nagstamon/QUI/dialog_acknowledge.ui'
 #
-# Created by: PyQt5 UI code generator 5.5.1
+# Created by: PyQt5 UI code generator 5.7
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -76,4 +76,14 @@ class Ui_dialog_acknowledge(object):
         self.input_checkbox_persistent_comment.setText(_translate("dialog_acknowledge", "Persistent comment"))
         self.input_checkbox_acknowledge_all_services.setText(_translate("dialog_acknowledge", "Acknowledge all services on host"))
         self.input_label_description.setText(_translate("dialog_acknowledge", "description - set by QUI.py"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    dialog_acknowledge = QtWidgets.QDialog()
+    ui = Ui_dialog_acknowledge()
+    ui.setupUi(dialog_acknowledge)
+    dialog_acknowledge.show()
+    sys.exit(app.exec_())
 

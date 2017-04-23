@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'dialog_submit.ui'
+# Form implementation generated from reading ui file '/home/oernii/src/Nagstamon/Nagstamon/QUI/dialog_submit.ui'
 #
-# Created by: PyQt5 UI code generator 5.5.1
+# Created by: PyQt5 UI code generator 5.7
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class Ui_dialog_submit(object):
-
     def setupUi(self, dialog_submit):
         dialog_submit.setObjectName("dialog_submit")
         dialog_submit.resize(473, 449)
@@ -98,7 +96,7 @@ class Ui_dialog_submit(object):
         self.horizontalLayout.addWidget(self.button_change_defaults_submit_check_result)
         self.button_box = QtWidgets.QDialogButtonBox(dialog_submit)
         self.button_box.setOrientation(QtCore.Qt.Horizontal)
-        self.button_box.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Ok)
+        self.button_box.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
         self.button_box.setObjectName("button_box")
         self.horizontalLayout.addWidget(self.button_box)
         self.gridLayout.addLayout(self.horizontalLayout, 11, 0, 2, 4)
@@ -118,13 +116,9 @@ class Ui_dialog_submit(object):
         self.button_box.rejected.connect(dialog_submit.reject)
         QtCore.QMetaObject.connectSlotsByName(dialog_submit)
         dialog_submit.setTabOrder(self.input_radiobutton_result_ok, self.input_radiobutton_result_up)
-        dialog_submit.setTabOrder(self.input_radiobutton_result_ok, self.input_radiobutton_result_information)
-        dialog_submit.setTabOrder(self.input_radiobutton_result_information, self.input_radiobutton_result_warning)
-        dialog_submit.setTabOrder(self.input_radiobutton_result_warning, self.input_radiobutton_result_average)
-        dialog_submit.setTabOrder(self.input_radiobutton_result_average, self.input_radiobutton_result_high)
-        dialog_submit.setTabOrder(self.input_radiobutton_result_high, self.input_radiobutton_result_critical)
-        dialog_submit.setTabOrder(self.input_radiobutton_result_critical, self.input_radiobutton_result_disaster)
-        dialog_submit.setTabOrder(self.input_radiobutton_result_disaster, self.input_radiobutton_result_unreachable)
+        dialog_submit.setTabOrder(self.input_radiobutton_result_up, self.input_radiobutton_result_warning)
+        dialog_submit.setTabOrder(self.input_radiobutton_result_warning, self.input_radiobutton_result_critical)
+        dialog_submit.setTabOrder(self.input_radiobutton_result_critical, self.input_radiobutton_result_unreachable)
         dialog_submit.setTabOrder(self.input_radiobutton_result_unreachable, self.input_radiobutton_result_unknown)
         dialog_submit.setTabOrder(self.input_radiobutton_result_unknown, self.input_radiobutton_result_down)
         dialog_submit.setTabOrder(self.input_radiobutton_result_down, self.input_lineedit_check_output)
@@ -152,3 +146,14 @@ class Ui_dialog_submit(object):
         self.label_comment.setText(_translate("dialog_submit", "Comment:"))
         self.input_label_description.setText(_translate("dialog_submit", "description - set by QUI.py"))
         self.button_change_defaults_submit_check_result.setText(_translate("dialog_submit", "Change submit check result defaults..."))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    dialog_submit = QtWidgets.QDialog()
+    ui = Ui_dialog_submit()
+    ui.setupUi(dialog_submit)
+    dialog_submit.show()
+    sys.exit(app.exec_())
+

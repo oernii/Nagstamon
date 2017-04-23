@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric project file for project Nagstamon -->
-<!-- Saved: 2017-04-21, 14:56:20 -->
+<!-- Saved: 2017-04-22, 14:28:03 -->
 <!-- Copyright (C) 2017 ,  -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -12,6 +12,7 @@
   <Version>0.1</Version>
   <Author></Author>
   <Email></Email>
+  <Eol index="-1"/>
   <Sources>
     <Source>Nagstamon/Config.py</Source>
     <Source>Nagstamon/Helpers.py</Source>
@@ -150,7 +151,7 @@
   <Resources/>
   <Interfaces/>
   <Others/>
-  <MainScript>nagstacli.py</MainScript>
+  <MainScript>nagstamon.py</MainScript>
   <Vcs>
     <VcsType>None</VcsType>
   </Vcs>

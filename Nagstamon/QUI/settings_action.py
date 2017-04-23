@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'settings_action.ui'
+# Form implementation generated from reading ui file '/home/oernii/src/Nagstamon/Nagstamon/QUI/settings_action.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.7
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -219,4 +219,14 @@ class Ui_settings_action(object):
         self.label_status_popup.setText(_translate("settings_action", "Status popup window:"))
         self.input_checkbox_recheck.setText(_translate("settings_action", "Recheck after action to force result"))
         self.input_checkbox_enabled.setText(_translate("settings_action", "Enabled"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    settings_action = QtWidgets.QDialog()
+    ui = Ui_settings_action()
+    ui.setupUi(settings_action)
+    settings_action.show()
+    sys.exit(app.exec_())
 

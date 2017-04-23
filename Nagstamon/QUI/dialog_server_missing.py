@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'dialog_server_missing.ui'
+# Form implementation generated from reading ui file '/home/oernii/src/Nagstamon/Nagstamon/QUI/dialog_server_missing.ui'
 #
-# Created by: PyQt5 UI code generator 5.5.1
+# Created by: PyQt5 UI code generator 5.7
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -57,4 +57,14 @@ class Ui_dialog_server_missing(object):
         self.button_create_server.setText(_translate("dialog_server_missing", "Create new server"))
         self.button_ignore.setText(_translate("dialog_server_missing", "Ignore"))
         self.button_exit.setText(_translate("dialog_server_missing", "Exit"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    dialog_server_missing = QtWidgets.QDialog()
+    ui = Ui_dialog_server_missing()
+    ui.setupUi(dialog_server_missing)
+    dialog_server_missing.show()
+    sys.exit(app.exec_())
 

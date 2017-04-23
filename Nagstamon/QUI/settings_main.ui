@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>650</width>
-    <height>972</height>
+    <width>1197</width>
+    <height>1405</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -42,7 +42,7 @@
       </sizepolicy>
      </property>
      <property name="currentIndex">
-      <number>4</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab_servers">
       <attribute name="title">
@@ -383,14 +383,14 @@
             <item row="0" column="1">
              <widget class="QRadioButton" name="input_radiobutton_short_display">
               <property name="text">
-               <string>Short  [ 1 | 4 ]</string>
+               <string>Short  [ 1 | &amp;4 ]</string>
               </property>
              </widget>
             </item>
             <item row="0" column="0">
              <widget class="QRadioButton" name="input_radiobutton_long_display">
               <property name="text">
-               <string>Long  [ 1 WARNING | 4 CRITICAL ]</string>
+               <string>Long  [ &amp;1 WARNING | 4 CRITICAL ]</string>
               </property>
              </widget>
             </item>
@@ -569,7 +569,7 @@
           <property name="spacing">
            <number>5</number>
           </property>
-          <item row="2" column="0">
+          <item row="3" column="0">
            <layout class="QHBoxLayout" name="horizontalLayout_16">
             <property name="spacing">
              <number>5</number>
@@ -589,7 +589,7 @@
             <item>
              <widget class="QRadioButton" name="input_radiobutton_fullscreen">
               <property name="text">
-               <string>Fullscreen</string>
+               <string>F&amp;ullscreen</string>
               </property>
              </widget>
             </item>
@@ -648,6 +648,13 @@
            <widget class="QRadioButton" name="input_radiobutton_statusbar_floating">
             <property name="text">
              <string>Floating statusbar</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QRadioButton" name="input_radiobutton_windowed">
+            <property name="text">
+             <string>Windowed mode</string>
             </property>
            </widget>
           </item>
@@ -908,14 +915,14 @@
            </widget>
           </item>
           <item row="6" column="0">
-           <widget class="qcheckbox" name="input_checkbox_filter_all_high_services">
+           <widget class="QCheckBox" name="input_checkbox_filter_all_high_services">
             <property name="text">
              <string>all high services</string>
             </property>
            </widget>
           </item>
           <item row="7" column="0">
-           <widget class="qcheckbox" name="input_checkbox_filter_all_average_services">
+           <widget class="QCheckBox" name="input_checkbox_filter_all_average_services">
             <property name="text">
              <string>all average services</string>
             </property>
@@ -1591,7 +1598,7 @@
              <item row="1" column="0" colspan="2">
               <widget class="QRadioButton" name="input_radiobutton_notification_default_sound">
                <property name="text">
-                <string>Use default Nagios sounds</string>
+                <string>&amp;Use default Nagios sounds</string>
                </property>
               </widget>
              </item>

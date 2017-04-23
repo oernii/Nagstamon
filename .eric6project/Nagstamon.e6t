@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
 <!-- eric6 tasks file for project Nagstamon -->
-<!-- Saved: 2017-04-21, 14:56:20 -->
+<!-- Saved: 2017-04-23, 14:32:39 -->
 <Tasks version="6.0">
   <ProjectScanFilter></ProjectScanFilter>
+  <Task priority="1" completed="False" type="2" uid="{a03e7556-0d23-4907-b463-2fc1a332a31b}">
+    <Summary>WARNING:&quot;))</Summary>
+    <Description></Description>
+    <Created>2017-04-22, 13:47:46</Created>
+    <Resource>
+      <Filename>Nagstamon/QUI/settings_main.py</Filename>
+      <Linenumber>1300</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{ce5b263e-4abe-4e85-9669-163da48d9e35}">
+    <Summary>TODO: test if X11 or Wayland is used</Summary>
+    <Description></Description>
+    <Created>2017-04-23, 14:32:36</Created>
+    <Resource>
+      <Filename>Nagstamon/QUI/__init__.py</Filename>
+      <Linenumber>84</Linenumber>
+    </Resource>
+  </Task>
 </Tasks>

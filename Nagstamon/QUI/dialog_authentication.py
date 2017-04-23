@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'dialog_authentication.ui'
+# Form implementation generated from reading ui file '/home/oernii/src/Nagstamon/Nagstamon/QUI/dialog_authentication.ui'
 #
-# Created by: PyQt5 UI code generator 5.5.1
+# Created by: PyQt5 UI code generator 5.7
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -69,4 +69,14 @@ class Ui_dialog_authentication(object):
         self.label_password.setText(_translate("dialog_authentication", "Password:"))
         self.input_checkbox_use_autologin.setText(_translate("dialog_authentication", "Use autologin"))
         self.input_checkbox_save_password.setText(_translate("dialog_authentication", "Save password"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    dialog_authentication = QtWidgets.QDialog()
+    ui = Ui_dialog_authentication()
+    ui.setupUi(dialog_authentication)
+    dialog_authentication.show()
+    sys.exit(app.exec_())
 
